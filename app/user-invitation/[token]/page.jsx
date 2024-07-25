@@ -46,7 +46,7 @@ const UserInvitation = () => {
           setMessage(data.message);
           setCurrentUserId(data.current_user_id);
         } else {
-          router.push('/signup');
+          router.push('/login');
         }
       } catch (error) {
         setError('An error occurred');
@@ -84,9 +84,12 @@ const UserInvitation = () => {
 
   return (
     <>
-      { message && (
+      {message && (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
           <div className="max-w-md w-full bg-white shadow-md rounded-lg p-8">
+            <div className="mb-2">
+              <p className="text-center text-black text-2xl font-bold">{message}</p>
+            </div>
             <h2 className="text-2xl font-bold mb-6 text-center">Setup Your Account</h2>
             {error && <p className="text-red-500 text-center mb-4">{error}</p>}
             <form onSubmit={handleSubmit}>
